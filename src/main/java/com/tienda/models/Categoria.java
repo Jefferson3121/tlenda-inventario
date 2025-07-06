@@ -1,16 +1,15 @@
 package com.tienda.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NonNull;
+import lombok.*;
 
 import java.util.Objects;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 public class Categoria {
+    @Setter
     private int id;
-    private String nombre;
+    private final String nombre;
 
 
     @Override
@@ -31,5 +30,10 @@ public class Categoria {
     @Override
     public int hashCode(){
         return Objects.hash(nombre);
+    }
+
+    @Override
+    public String toString(){
+        return  String.format("ID: %d | Nombre: %s", id,nombre);
     }
 }

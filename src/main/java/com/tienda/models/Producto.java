@@ -7,18 +7,20 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-@AllArgsConstructor
+@Getter
+@Setter
 public class Producto {
-    @Getter
-    private final int id;
-    @Getter
+    private  int id;
     private String nombre;
-    @Getter
-    @Setter
     private BigDecimal precio;
-    @Getter
-    @Setter
-    private String categoria;
+    private int stock;
+    private Categoria categoria;
+
+    public Producto(String nombre, BigDecimal precio, int stock){
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
 
     @Override
     public boolean equals(Object obj){
@@ -32,7 +34,7 @@ public class Producto {
 
         Producto producto2 = (Producto) obj;
 
-        return  this.getNombre().equalsIgnoreCase(((Producto) obj).getNombre()) && this.getCategoria().equalsIgnoreCase(((Producto) obj).getCategoria());
+        return  this.getNombre().equalsIgnoreCase((producto2.getNombre())) && this.categoria.equals(producto2.getCategoria());
     }
 
     @Override

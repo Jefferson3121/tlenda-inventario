@@ -18,7 +18,6 @@ private static HikariDataSource dataSource;
         config.setMaximumPoolSize(10);
         config.setMinimumIdle(2);
 
-
         dataSource = new HikariDataSource(config);
     }
 
